@@ -1,0 +1,18 @@
+<div class="app-layout">
+  <aside class="sidebar">
+    <h2>QuizAdmin</h2>
+    <nav>
+      <ul>
+        <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/themes" routerLinkActive="active">Themes</a></li>
+        <li><a routerLink="/phases" routerLinkActive="active">Phases</a></li>
+        <li><a routerLink="/questions" routerLinkActive="active">Questions</a></li>
+        <li><a routerLink="/upload" routerLinkActive="active">Upload Questions</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

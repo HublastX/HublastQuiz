@@ -1,0 +1,19 @@
+<div class="dashboard-container">
+  <div class="search-box">
+    <input
+      type="text"
+      placeholder="Buscar por temas..."
+      [(ngModel)]="searchTerm"
+    />
+  </div>
+
+  <div class="themes-grid">
+    <div class="theme-card" *ngFor="let theme of filteredThemes">
+      <h3>{{ theme.name }}</h3>
+      <p>{{ theme.description }}</p>
+      <button>Ver perguntas</button>
+    </div>
+  </div>
+
+  <p *ngIf="filteredThemes.length === 0">Nenhum tema encontrado.</p>
+</div>

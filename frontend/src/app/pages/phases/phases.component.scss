@@ -1,0 +1,53 @@
+.phase-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input, textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+li button {
+  margin-left: 10px;
+  background-color: #f39c12;
+}
+
+li button:last-child {
+  background-color: #e74c3c;
+}

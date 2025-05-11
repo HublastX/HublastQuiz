@@ -1,0 +1,22 @@
+<div class="theme-container">
+  <h2>{{ editingId ? 'Editar Tema' : 'Criar Novo Tema' }}</h2>
+
+  <form (submit)="addOrUpdateTheme(); $event.preventDefault()">
+    <input type="text" placeholder="Nome do Tema" [(ngModel)]="name" name="name" required />
+    <textarea placeholder="Descrição" [(ngModel)]="description" name="description" required></textarea>
+    <button type="submit">{{ editingId ? 'Salvar Alterações' : 'Adicionar Tema' }}</button>
+  </form>
+
+  <hr />
+
+  <h3>Temas Criados</h3>
+  <div *ngIf="themes.length === 0">Nenhum tema ainda.</div>
+
+  <ul>
+    <li *ngFor="let theme of themes">
+      <strong>{{ theme.name }}</strong> — {{ theme.description }}
+      <button (click)="editTheme(theme)">Editar</button>
+      <button (click)="deleteTheme(theme.id)">Excluir</button>
+    </li>
+  </ul>
+</div>
