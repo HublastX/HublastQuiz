@@ -1,2 +1,10 @@
 node_modules
 .angular
+venv
+.venv
+__pycache__
+*.pyc
+*.pyo
+
+trash
+.env
