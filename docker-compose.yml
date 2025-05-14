@@ -1,0 +1,27 @@
+services:
+    postgres:
+        image: postgres:17
+        ports:
+            - "5432:5432"
+        env_file:
+            - .env
+        networks:
+            - project_network
+        restart: always
+
+    app-quiz:
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        ports:
+            - "3009:3009"
+        env_file:
+            - .env
+        depends_on:
+            - postgres
+        networks:
+            - project_network
+        restart: always
+networks:
+    project_network:
+        driver: bridge
