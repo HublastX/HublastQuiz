@@ -1,27 +1,49 @@
+version: '3.8'
+
 services:
     postgres:
-        image: postgres:17
+        image: postgres:16-alpine
+        container_name: hublastquiz-postgres
+        environment:
+            POSTGRES_USER: myuser
+            POSTGRES_PASSWORD: mypassword
+            POSTGRES_DB: mydatabase
         ports:
             - "5432:5432"
-        env_file:
-            - .env
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
         networks:
-            - project_network
-        restart: always
+            - hublastquiz-network
 
-    app-quiz:
-        build:
-            context: ./backend
-            dockerfile: Dockerfile
-        ports:
-            - "3009:3009"
-        env_file:
-            - .env
+    backend:
+        build: ./backend
+        container_name: hublastquiz-backend
+        restart: always
         depends_on:
             - postgres
+        environment:
+            - DATABASE_URL=postgresql://myuser:mypassword@postgres:5432/mydatabase
+            - API_PORT=3010
+            - GOOGLE_API_KEY=AIzaSyA75I1c3h2pna-MFKz9v2803esSAqYkRDI
+        ports:
+            - "3010:3010"
         networks:
-            - project_network
+            - hublastquiz-network
+
+    frontend:
+        build: ./frontend/quiz-app
+        container_name: hublastquiz-frontend
         restart: always
+        depends_on:
+            - backend
+        ports:
+            - "8080:4200"
+        networks:
+            - hublastquiz-network
+
 networks:
-    project_network:
+    hublastquiz-network:
         driver: bridge
+
+volumes:
+    postgres_data:
