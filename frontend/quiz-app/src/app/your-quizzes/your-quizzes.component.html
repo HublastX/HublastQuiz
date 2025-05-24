@@ -1,0 +1,22 @@
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="page-title">Seus Quizzes</h1>
+    <button class="btn btn-outline-light" routerLink="/">Voltar</button>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4" *ngFor="let quiz of quizzes">
+      <div class="quiz-card">
+        <div class="theme-container">
+          <span class="theme-label">Tema:</span>
+          <div class="theme-name">{{ quiz.theme }}</div>
+        </div>
+        <div class="phase-container">
+          <span class="phase-label">Fase:</span>
+          <div class="phase-name">{{ quiz.phase }}</div>
+        </div>
+        <button class="btn btn-play">Jogar</button>
+      </div>
+    </div>
+  </div>
+</div>

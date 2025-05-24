@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+    backend:
+        build: ./backend
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./backend:/app
+        env_file:
+            - .env
+        depends_on:
+            - db
+        command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+        networks:
+            - quiz-network
+
+    frontend:
+        build: ./frontend/quiz-app
+        ports:
+            - "4200:4200"
+        volumes:
+            - ./frontend/quiz-app:/app
+            - /app/node_modules
+        environment:
+            - API_URL=http://localhost:8000
+            - API_SERVER=http://localhost:8000
+        depends_on:
+            - backend
+        networks:
+            - quiz-network
+        command: npm start
+        restart: unless-stopped
+
+    db:
+        image: postgres:13
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=quiz_db
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        networks:
+            - quiz-network
+
+volumes:
+    postgres_data:
+
+networks:
+    quiz-network:
+        driver: bridge

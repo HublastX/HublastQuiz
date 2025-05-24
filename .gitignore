@@ -1,0 +1,61 @@
+# Dependências
+node_modules/
+.pnp/
+.pnp.js
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretórios de build
+/dist/
+/build/
+/out/
+/.next/
+.angular/
+
+# Cache e arquivos temporários
+.cache/
+.temp/
+.tmp/
+.eslintcache
+.stylelintcache
+
+# Testes
+/coverage/
+/.nyc_output/
+
+# IDEs e editores
+/.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Outros
+*.swp
+*.swo
+.vercel
+.now 

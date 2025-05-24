@@ -1,0 +1,71 @@
+.page-title {
+  color: #5e2f8c;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card {
+  background-color: #9c6ad6;
+  border-radius: 15px;
+  padding: 1.5rem;
+  color: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.quiz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.theme-container, .phase-container {
+  margin-bottom: 1.5rem;
+}
+
+.theme-label, .phase-label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.theme-name, .phase-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.btn-play {
+  background-color: #5e2f8c;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: auto;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-play:hover {
+  background-color: #4a2470;
+  transform: translateY(-2px);
+}
+
+.btn-outline-light {
+  border: 2px solid #5e2f8c;
+  color: #5e2f8c;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-outline-light:hover {
+  background-color: #5e2f8c;
+  color: white;
+}
