@@ -41,6 +41,100 @@
   border-radius: 8px;
 }
 
+// Estilos para o seletor de fases
+.phase-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  cursor: default;
+}
+
+.phase-dropdown {
+  position: relative;
+}
+
+.phase-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: all 0.2s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  outline: none;
+}
+
+.phase-toggle:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.phase-toggle:focus {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+.phase-toggle:active {
+  transform: scale(0.95);
+}
+
+.phase-toggle i {
+  transition: transform 0.3s ease;
+}
+
+.phase-toggle i.rotate {
+  transform: rotate(180deg);
+}
+
+.phase-options {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: max-content;
+  min-width: 150px;
+  z-index: 10;
+  overflow: hidden;
+  display: none;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.phase-options.show {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.phase-option {
+  padding: 0.8rem 1rem;
+  color: #5e2f8c;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.phase-option:hover {
+  background-color: rgba(94, 47, 140, 0.1);
+}
+
+.phase-option.active {
+  background-color: rgba(94, 47, 140, 0.2);
+  font-weight: 600;
+}
+
 .btn-play {
   background-color: #5e2f8c;
   color: white;
